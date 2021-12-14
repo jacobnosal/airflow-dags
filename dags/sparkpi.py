@@ -55,7 +55,7 @@ spark_job = SparkSubmitOperator(
         'spark.kubernetes.namespace': 'airflow', 
         'spark.kubernetes.authenticate.driver.serviceAccountName': 'spark'
     },
-    verbose=True,
+    verbose=False,
     dag=dag,
     executor_config=executor_config
 )
