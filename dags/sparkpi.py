@@ -45,7 +45,7 @@ spark_job = SparkSubmitOperator(
     application='local:///opt/spark/examples/jars/spark-examples_2.12-3.2.0.jar', 
     java_class="org.apache.spark.examples.SparkPi",
     application_args=[
-        10000
+        '10000'
     ],
     name="sparkpi",
     spark_binary="spark-submit",
