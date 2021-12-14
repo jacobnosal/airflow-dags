@@ -48,7 +48,7 @@ spark_job = SparkSubmitOperator(
         '10000'
     ],
     name="sparkpi",
-    spark_binary="spark-submit",
+    spark_binary="/home/airflow/.local/bin/spark-submit",
     conf={
         'spark.executor.instances': '5',
         'spark.kubernetes.container.image':'jacobnosal/spark:3.2.0',
