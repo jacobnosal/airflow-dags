@@ -12,7 +12,7 @@ dag = DAG(
     },
     description="Dag showing the SparkSubmitOperator's capabilities.",
     schedule_interval="@hourly",
-    start_date=datetime(2021, 12, 01),
+    start_date=datetime(2021, 12, 1),
     params={},
     tags=[],
     catchup=True
