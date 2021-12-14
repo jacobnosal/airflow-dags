@@ -29,7 +29,7 @@ executor_config = {
             containers=[
                 V1Container(
                     name="base",
-                    image="jacobnosal/spark:3.2.0",
+                    image="jacobnosal/airflow:2.2.2",
                     env=[
                         V1EnvVar(name="AIRFLOW__LOGGING__LOGGING_LEVEL", value="DEBUG")
                     ]
