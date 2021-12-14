@@ -15,7 +15,7 @@ dag = DAG(
     start_date=datetime(2021, 12, 1),
     params={},
     tags=[],
-    catchup=True
+    catchup=False
 )
 
 executor_config = {
