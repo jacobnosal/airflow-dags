@@ -48,7 +48,7 @@ spark_job = SparkSubmitOperator(
         10000
     ],
     name="sparkpi",
-    spark_binary="/opt/spark/bin/spark-submit",
+    spark_binary="spark-submit",
     conf={
         'spark.executor.instances': '5',
         'spark.kubernetes.container.image':'jacobnosal/spark:3.2.0',
