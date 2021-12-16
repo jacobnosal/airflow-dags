@@ -41,7 +41,7 @@ executor_config = {
 
 spark_job = SparkSubmitOperator(
     task_id='spark_job',
-    conn_id='spark-k8s',
+    conn_id='spark_k8s',
     application='local:///opt/spark/examples/jars/spark-examples_2.12-3.2.0.jar', 
     java_class="org.apache.spark.examples.SparkPi",
     application_args=[

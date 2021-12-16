@@ -33,7 +33,7 @@ spark_job = BashOperator(
         echo "That means that {{ data_interval_start }} is the 'Time' that the dag run represents"
         echo "but, the dag executes at {{ data_interval_end }}. This really only matters when the"
         echo "schedule is set to a long window, like quarterly. Ask me how I know this."
-        echo "Access a connection string {{ conn.spark-k8s }} is easy. Same goes for vars."
+        echo "Access a connection string {{ conn.spark_k8s }} is easy. Same goes for vars."
         echo "This is jinja templating so we can also create our own macros. This is how most"
         echo "problems are solved in airflow."
     """
