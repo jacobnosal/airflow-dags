@@ -18,6 +18,8 @@ dag = DAG(
     catchup=False
 )
 
+# https://github.com/apache/airflow/blob/af0fb4f1a632ccc11fe22ea906d9a0fb1187cf91/airflow/kubernetes/pod_generator.py#L224
+# https://github.com/apache/airflow/blob/af0fb4f1a632ccc11fe22ea906d9a0fb1187cf91/airflow/providers/cncf/kubernetes/operators/kubernetes_pod.py#L436
 pod_task = KubernetesPodOperator(
     dag=dag,
     task_id='pod_task',
