@@ -53,7 +53,8 @@ spark_job = SparkSubmitOperator(
         'spark.executor.instances': '5',
         'spark.kubernetes.container.image':'jacobnosal/spark:3.2.0',
         'spark.kubernetes.diver.master': 'k8s://kubernetes.default.svc:443',
-        'spark.kubernetes.authenticate.driver.serviceAccountName': 'spark'
+        'spark.kubernetes.authenticate.driver.serviceAccountName': 'spark',
+        'spark.kubernetes.namespace': 'airflow'
     },
     verbose=False,
     dag=dag,
