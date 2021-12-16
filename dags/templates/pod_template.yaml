@@ -6,12 +6,14 @@ metadata:
 spec:
   containers:
   - name: base
+    restartPolicy: Never
     image: jacobnosal/alpine-curl-jq
     command: ["sleep"]
     # Args to use when running Airflow workers (templated).
     args:
       - "30"
   - name: data-sidecar
+    restartPolicy: Never
     image: jacobnosal/alpine-curl-jq
     command: ["curl"]
     # Args to use when running Airflow workers (templated).
