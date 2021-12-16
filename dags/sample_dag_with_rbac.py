@@ -27,7 +27,7 @@ dag = DAG(
 spark_job = BashOperator(
     dag=dag,
     task_id="some_bash",
-    command="""
+    bash_command="""
         echo "This dag has a start date of {{ params.start_date }} but that is user generated."
         echo "This dag run executes at the end of the time interval that it represents."
         echo "That means that {{ data_interval_start }} is the 'Time' that the dag run represents"
