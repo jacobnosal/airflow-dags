@@ -29,7 +29,7 @@ executor_config = {
             containers=[
                 V1Container(
                     name="base",
-                    image="jacobnosal/airflow:2.2.2-spark-java",
+                    image="jacobnosal/airflow:2.2.2-spark-worker",
                     env=[
                         V1EnvVar(name="AIRFLOW__LOGGING__LOGGING_LEVEL", value="DEBUG")
                     ]
@@ -52,7 +52,7 @@ spark_job = SparkSubmitOperator(
     conf={
         'spark.executor.instances': '5',
         'spark.kubernetes.container.image':'jacobnosal/spark:3.2.0',
-        'spark.kubernetes.namespace': 'airflow', 
+        'spark.kubernetes.diver.master': 'k8s://kubernetes.default.svc:443',
         'spark.kubernetes.authenticate.driver.serviceAccountName': 'spark'
     },
     verbose=False,
