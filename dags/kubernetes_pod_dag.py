@@ -25,6 +25,7 @@ pod_task = KubernetesPodOperator(
     task_id='pod_task',
     namespace='airflow',
     get_logs=True,
+    name="curler",
     service_account_name='airflow-worker',
     is_delete_operator_pod=True,
     log_events_on_failure=True,
