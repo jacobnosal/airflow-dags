@@ -18,27 +18,6 @@ dag = DAG(
     catchup=False
 )
 
-executor_config = {
-    "pod_override": V1Pod(
-        metadata=V1ObjectMeta(
-            labels={
-                "tier": "poc"
-            }
-        ),
-        spec=V1PodSpec(
-            containers=[
-                V1Container(
-                    name="base",
-                    image="jacobnosal/airflow:2.2.2-spark-worker",
-                    env=[
-                        V1EnvVar(name="AIRFLOW__LOGGING__LOGGING_LEVEL", value="DEBUG")
-                    ]
-                )
-            ]
-        )
-    )
-}
-
 spark_job = SparkSubmitOperator(
     task_id='spark_job',
     conn_id='spark_k8s',
@@ -58,5 +37,24 @@ spark_job = SparkSubmitOperator(
     },
     verbose=False,
     dag=dag,
-    executor_config=executor_config
+    executor_config={
+        "pod_override": V1Pod(
+            metadata=V1ObjectMeta(
+                labels={
+                    "tier": "poc"
+                }
+            ),
+            spec=V1PodSpec(
+                containers=[
+                    V1Container(
+                        name="base",
+                        image="jacobnosal/airflow:2.2.2-spark-worker",
+                        env=[
+                            V1EnvVar(name="AIRFLOW__LOGGING__LOGGING_LEVEL", value="DEBUG")
+                        ]
+                    )
+                ]
+            )
+        )
+    }
 )
