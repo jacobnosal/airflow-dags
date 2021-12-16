@@ -1,22 +1,23 @@
+---
 apiVersion: v1
 kind: Pod
 metadata:
   name: curler
   namespace: airflow
 spec:
+  restartPolicy: Never
   containers:
   - name: base
-    restartPolicy: Never
     image: jacobnosal/alpine-curl-jq
     command: ["sleep"]
-    # Args to use when running Airflow workers (templated).
+    env:
+    - name: SOME_VARIABLE
+      value: THE_VALUE
     args:
       - "30"
   - name: data-sidecar
-    restartPolicy: Never
     image: jacobnosal/alpine-curl-jq
     command: ["curl"]
-    # Args to use when running Airflow workers (templated).
     args:
       - "https://api2.binance.com/api/v3/ticker/24hr"
 
