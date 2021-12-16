@@ -29,5 +29,5 @@ pod_task = KubernetesPodOperator(
     service_account_name='airflow-worker',
     is_delete_operator_pod=True,
     log_events_on_failure=True,
-    pod_template_file="/opt/airflow/dags/templates/pod_template.yaml"
+    pod_template_file="/opt/airflow/dags/repo/dags/templates/pod_template.yaml"
 )
